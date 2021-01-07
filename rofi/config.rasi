@@ -1,0 +1,11 @@
+configuration {
+  show-icons:         true;
+  icon-theme:         "Flat-Remix-Blue-Dark";
+  cycle:              true;
+  hide-scrollbar:     true;
+  disable-history:    false;
+  modi:               "drun";
+  display-drun:       "apps";
+  columns: 2;
+}
+@import "/usr/share/rofi/themes/gruvbox-common.rasi"
