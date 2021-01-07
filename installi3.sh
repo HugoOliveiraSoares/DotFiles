@@ -16,6 +16,13 @@ sudo apt install gnome-control-center -y
 sudo apt install gnome-settings-daemon -y
 sudo apt install nautilus -y
 sudo apt install rofi -y
+
+cd ~/.config
+mkdir i3/
+mkdir picom/
+mkdir polybar/
+
+cd $HOME
 git clone https://github.com/terroo/i3-radius
 sudo mv "$(which i3)" "$(which i3)_original"
 cd i3-radius
@@ -33,26 +40,38 @@ make -j$(nproc)
 sudo make install
 cp ~/DotFiles/polybar/* ~/.config/polybar/
 
-cd $HOME
-git clone https://github.com/jonaburg/picom
-cd picom
-meson --buildtype=release . build
-ninja -C build
-# To install the binaries in /usr/local/bin (optional)
-sudo ninja -C build install
-cp ~/DotFiles/picom/* ~/.config/picom/
+sudo apt install picom
+# cd $HOME
+# git clone https://github.com/jonaburg/picom
+# cd picom
+# meson --buildtype=release . build
+# ninja -C build
+# # To install the binaries in /usr/local/bin (optional)
+# sudo ninja -C build install
+# cp ~/DotFiles/picom/* ~/.config/picom/
 
 cd $HOME
 sudo apt install python3 -y
+sudo apt install python3-pip -y
 pip3 install pywal
 
-git clone https://github.com/ryanoasis/nerd-fonts.git
-cd nerd-fonts/
-chmod +x install.sh && ./install.sh
+cd $HOME
+# git clone https://github.com/ryanoasis/nerd-fonts.git
+# cd nerd-fonts/
+# chmod +x install.sh && ./install.sh
+
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts
+curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+curl -fLo "Inconsolata Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Inconsolata/complete/Inconsolata%20Nerd%20Font%20Complete.otf
+curl -flo "mononoki-Regular Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Mononoki/Regular/complete/mononoki-Regular%20Nerd%20Font%20Complete.ttf
+sudo apt install fonts-material-design-icons-iconfont
+sudo apt install fonts-hack
+fc-cache -v
 
 cd $HOME
 git clone https://github.com/stoeckmann/xwallpaper.git
-/autogen.sh
+./autogen.sh
 ./configure
 make
 make install
