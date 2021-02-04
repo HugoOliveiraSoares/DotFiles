@@ -13,8 +13,8 @@ rofi_command="rofi -theme $dir/powermenu.rasi"
 # Options
 shutdown=" Shutdown"
 reboot=" Restart"
-lock=" Lock"
-suspend=" Sleep"
+lock=" Lock"
+suspend=" Sleep"
 logout=" Logout"
 
 # Variable passed to rofi

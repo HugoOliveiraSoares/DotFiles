@@ -2,8 +2,8 @@
 
 # Color files
 PFILE="$HOME/.config/polybar/colors.ini"
-RFILE="$HOME/.config/polybar/scripts/rofi/colors.rasi"
-I3FILE="$HOME/.config/i3/config"
+RFILE="$HOME/.config/rofi/colors.rasi"
+I3FILE="$HOME/.config/regolith/Xresources"
 
 # Get colors
 #pywal_get() {
@@ -18,8 +18,8 @@ change_color() {
 	sed -i -e "s/foreground = #.*/foreground = #${FG}/g" $PFILE
 	sed -i -e "s/foreground-alt = #.*/foreground-alt = #33${FG}/g" $PFILE
 	sed -i -e "s/primary = #.*/primary = $AC/g" $PFILE
-	sed -i -e "s/i3-wm.client.focused.color.background #.*/i3-wm.client.focused.color.background $AC/g" $I3FILE
-	sed -i -e "s/i3-wm.client.focused.color.child_border #.*/i3-wm.client.focused.color.child_border $AC/g" $I3FILE
+	sed -i -e "s/i3-wm.client.focused.color.background: #.*/i3-wm.client.focused.color.background: $AC/g" $I3FILE
+	sed -i -e "s/i3-wm.client.focused.color.child_border: #.*/i3-wm.client.focused.color.child_border: $AC/g" $I3FILE
 
 	
 	# rofi
@@ -37,7 +37,7 @@ change_color() {
 	EOF
 	
 	#polybar-msg cmd restart
-	i3-msg restart
+	regolith-look refresh
 }
 
 # Main
